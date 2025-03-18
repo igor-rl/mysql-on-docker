@@ -14,16 +14,16 @@
 
 ## 🐬 MYSQL ON DOCKER
 **Sobre este projeto:**<br>
-Este projeto permite configurar um banco de dados MySQL de maneira rápida e fácil utilizando o Docker, ideal para ambientes de desenvolvimento. A configuração usa a imagem oficial do MySQL 8.0 no Docker, criando um ambiente pronto para ser utilizado em testes e desenvolvimento.
+Este projeto permite configurar um banco de dados MySQL de maneira rápida e fácil utilizando o Docker.
 
 **Extra Hosts:**<br>
 O arquivo `docker-compose.yaml` contém uma configuração extra_hosts `docker.host.internal`. Essa configuração permite que qualquer aplicação do seu ambiente de desenvolvimento - seja local, no docker ou kubernets - acesse o banco de dados MySQL. Isso é util pois não é necessário criar um novo container para cada aplicação que deseja acessar o banco de dados. <br>
 
 **Vantagens:**
-- Ter os mesmos dados de conexão para todas as aplicações, facilitando a configuração e manutenção do ambiente;
-- Não é necessário criar um novo container para cada aplicação que deseja acessar o banco de dados;
-- A configuração é feita uma única vez e pode ser utilizada por todas as aplicações do ambiente de desenvolvimento.
-- Os dados do banco de dados são mantidos em um único container, facilitando a manutenção e backup dos dados.
+- Ideal para ambiente de desenvolvimento;
+- Facilidade: Ter os mesmos dados de conexão para todas as aplicações;
+- Redução de recursos: Não é necessário criar um novo container para cada aplicação que deseja acessar o banco de dados MySQL;
+- Centralização de dados: Os dados do banco de dados são compartilhados a partir de um único container.
 
 ## 🚀 Instalação e utilização
 
@@ -33,8 +33,8 @@ O arquivo `docker-compose.yaml` contém uma configuração extra_hosts `docker.h
 
 Primeiro, clone o repositório para sua máquina local:
 ```bash
-git clone https://github.com/igor-rl/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/igor-rl/mysql-on-docker.git
+cd mysql-on-docker
 ```
 
 ##
@@ -56,7 +56,7 @@ Para acessar o banco de dados dentro do container, execute:
 docker exec -it mysql bash
 ```
 
-Em seguida, você pode entrar no MySQL com o seguinte comando:
+Em seguida, você pode acessar o MySQL com o seguinte comando:
 ```bash
 mysql -u root -p
 ```
@@ -67,9 +67,9 @@ Digite a senha `root` para acessar o banco.
 **4️⃣ Criar um banco de dados**
 Após acessar o MySQL, você pode criar o banco de dados de exemplo:
 ```sql
-CREATE DATABASE exemplo;
+CREATE DATABASE <nome_da_base_de_dados>;
 ```
-Esse comando criará um banco de dados chamado `example`, que pode ser utilizado no seu projeto de desenvolvimento.
+Esse comando criará um banco de dados chamado `<nome_da_base_de_dados>`, que pode ser utilizado no seu projeto de desenvolvimento.
 </ul>
 <br>
 
