@@ -8,8 +8,8 @@
 ## Índice
 [🐬 MYSQL ON DOCKER](#-mysql-on-docker)<br>
 [🚀 Instalação e utilização](#-instalação-e-utilização)<br>
-[🌐 Conexão via docker.host.internal](#-conexão-via-dockerhostinternal)<br>
-[🖥️ Configuração do docker.host.internal no windows](#️-configuração-do-dockerhostinternal-no-windows)
+[🌐 Conexão via host.docker.internal](#-conexão-via-dockerhostinternal)<br>
+[🖥️ Configuração do host.docker.internal no windows](#️-configuração-do-dockerhostinternal-no-windows)
 
 
 ## 🐬 MYSQL ON DOCKER
@@ -17,7 +17,7 @@
 Este projeto permite configurar um banco de dados MySQL de maneira rápida e fácil utilizando o Docker.
 
 **Extra Hosts:**<br>
-O arquivo `docker-compose.yaml` contém uma configuração extra_hosts `docker.host.internal`. Essa configuração permite que qualquer aplicação do seu ambiente de desenvolvimento - seja local, no docker ou kubernets - acesse o banco de dados MySQL. Isso é util pois não é necessário criar um novo container para cada aplicação que deseja acessar o banco de dados. <br>
+O arquivo `docker-compose.yaml` contém uma configuração extra_hosts `host.docker.internal`. Essa configuração permite que qualquer aplicação do seu ambiente de desenvolvimento - seja local, no docker ou kubernets - acesse o banco de dados MySQL. Isso é util pois não é necessário criar um novo container para cada aplicação que deseja acessar o banco de dados. <br>
 
 **Vantagens:**
 - Ideal para ambiente de desenvolvimento;
@@ -73,20 +73,20 @@ Esse comando criará um banco de dados chamado `<nome_da_base_de_dados>`, que po
 </ul>
 <br>
 
-## 🌐 Conexão via docker.host.internal
-Qualquer aplicação local, docker ou kubernets pode acessar o banco de dados MySQL utilizando o host `docker.host.internal` no lugar de `localhost`.
+## 🌐 Conexão via host.docker.internal
+Qualquer aplicação local, docker ou kubernets pode acessar o banco de dados MySQL utilizando o host `host.docker.internal` no lugar de `localhost`.
 
 **Exemplo de conexão sql**
 ```
-mysql -h docker.host.internal -u root -p
+mysql -h host.docker.internal -u root -p
 ```
 
-Caso ainda não tenha configurado o `docker.host.internal` no seu sistema, siga as instruções abaixo:
+Caso ainda não tenha configurado o `host.docker.internal` no seu sistema, siga as instruções abaixo:
 
 
 <br>
 
-## 🖥️ Configuração do docker.host.internal no windows
+## 🖥️ Configuração do host.docker.internal no windows
 <ul>
 
 **1️⃣ Abra o prompt de comando como administrador**
@@ -104,21 +104,21 @@ notepad C:\Windows\System32\drivers\etc\hosts
 
 ##
 
-**3️⃣ Adicione a entrada docker.host.internal**
+**3️⃣ Adicione a entrada host.docker.internal**
 
 Adicione a seguinte linha ao arquivo `hosts`:
 
 ```plainttext
-127.0.0.1 docker.host.internal
+127.0.0.1 host.docker.internal
 ```
-Isso irá mapear docker.host.internal para o IP local, permitindo que os containers se conectem ao host.
+Isso irá mapear host.docker.internal para o IP local, permitindo que os containers se conectem ao host.
 
 ##
 
 4️⃣ Salve e feche o arquivo
 Depois de adicionar a linha acima, salve o arquivo e feche o Bloco de Notas.
 
-Agora, os containers Docker no Windows poderão acessar o host utilizando docker.host.internal.
+Agora, os containers Docker no Windows poderão acessar o host utilizando host.docker.internal.
 </ul>
 
 ##
